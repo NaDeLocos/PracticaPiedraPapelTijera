@@ -34,9 +34,11 @@ public class Main {
     }
 
     /**
-     * Pide un número entero y devuelve lo que escriba el usuario tras limpiar la entrada.
+     * Pide un número entero entre min y max y devuelve lo que escriba el usuario tras limpiar la entrada.
      *
      * @param entrada objeto Scanner para leer de la entrada estándar.
+     * @param min cota inferior del rango.
+     * @param max cota superior del rango.
      * @param mensaje objecto String con la información necesaria para que el usuario sepa lo que tiene que escribir.
      * @return el número entero escrito por el usuario.
      */
