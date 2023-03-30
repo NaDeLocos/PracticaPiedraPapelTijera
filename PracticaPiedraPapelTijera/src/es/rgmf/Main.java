@@ -43,6 +43,16 @@ public class Main {
      * @return el número entero escrito por el usuario.
      */
     // TODO escribe el método pedirNumeroEnRango para que haga lo que se indica en el comentario
+    private static int pedirNumeroEnRango(Scanner entrada, int min, int max, String mensaje){
+        System.out.println(mensaje);
+        int num = 0;
+        do{
+            System.out.print("Escribe un número: ");
+            num = entrada.nextInt();
+        }while(num <= max && num >= min);
+
+        return num;
+    }
 
     /**
      * Muestra un menú de opciones al usuario:
@@ -56,12 +66,31 @@ public class Main {
      * @return número entero: 1 (piedra), 2 (papel), 3 (tijera).
      */
     // TODO escribe el método pedirOpcionUsuario para que haga lo que se indica en el comentario
+    private static int pedirOpcionUsuario(Scanner entrada){
+        int eleccion = 0;
+        System.out.println("Elige entre:");
+        System.out.println("1 - Piedra");
+        System.out.println("2 - Papel");
+        System.out.println("3 - Tijera");
+        
+        do{
+            System.out.print("\nintroduce un número: ");
+            eleccion = entrada.nextInt();
+        }while(eleccion <= 1 && eleccion >= 3);
+        return eleccion;
+    }
 
     /**
      * Genera un número aleatorio entre 1 y 3 que represente la opción de la máquina.
      * @return número entero: 1 (piedra), 2 (papel), 3 (tijera).
      */
     // TODO escribe el método generarOpcionMaquina para que haga lo que se indica en el comentario
+    private static int generarOpcionMaquina(){
+        int rand = (int)(Math.random() * 2) + 1;
+        
+
+        return rand;
+    }
 
     /**
      * Calcula quién ha ganado una partida a piedra, papel o tijera.
