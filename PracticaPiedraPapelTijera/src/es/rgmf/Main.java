@@ -49,7 +49,7 @@ public class Main {
         do{
             System.out.print("Escribe un número: ");
             num = entrada.nextInt();
-        }while(num <= max && num >= min);
+        }while(!(num <= max && num >= min));
 
         return num;
     }
@@ -110,6 +110,30 @@ public class Main {
      *         devuelve 0 si han empatado (misma opción).
      */
     // TODO escribe el método calcularVictoria para que haga lo que se indica en el comentario
+    private static int calcularVictoria(int jugador1,int jugador2){
+        //piedra = 1
+        //papel = 2
+        //tijera = 3
+        if(jugador1 == jugador2){
+            return 0;
+        }
+        switch(jugador1){
+            case 1:
+                if(jugador2 == 3)
+                {return 1;}
+                else{return 2;}
+            case 2:
+                if(jugador2 == 1)
+                {return 1;}
+                else{return 2;}
+            case 3:
+                if(jugador2 == 2)
+                {return 1;}
+                else{return 2;}
+        }
+
+        throw new IllegalArgumentException("Número introducido incorrecto: (en función 'calcularVictoria')") ;
+    }
 
     /**
      * Muestra por pantalla el resultado de una partida.
@@ -121,6 +145,31 @@ public class Main {
      * @param opcion2 la opción elegida por el jugador 2.
      */
     // TODO escribe el método mostrarResultado para que haga lo que se indica en el comentario
+    private static void mostrarResultado(int victoria, String nombre1, int opcion1, String nombre2, int opcion2){
+
+        String ganador = "",eleccion1 = "",eleccion2 = "";
+        if(victoria != 0){
+            ganador = victoria == 1 ? nombre1 : nombre2;//ganador = "Ganador:" + ganador;
+        }else{ganador = "empate";}
+
+        switch(opcion1){
+            case 1: eleccion1 = "piedra"; break;
+            case 2: eleccion1 = "papel"; break;
+            case 3: eleccion1 = "tijera"; break;
+        }
+        switch(opcion2){
+            case 1: eleccion2 = "piedra"; break;
+            case 2: eleccion2 = "papel"; break;
+            case 3: eleccion2 = "tijera"; break;
+        }
+
+        System.out.println("Elección de "+nombre1+":\t" + eleccion1);
+        System.out.println("Elección de "+nombre2+":\t" + eleccion2);
+
+        
+        System.out.println("Ganador:\t\t" + ganador);
+        
+    }
 
     /**
      * Asume que el parámetro opción es 1, 2 o 3, de manera que si se pasa otro número
@@ -130,4 +179,17 @@ public class Main {
      * @return el nombre de la opción elegida: 1 = Piedra, 2 = Papel, 3 = Tijera
      */
     // TODO escribe el método nombreOpcion para que haga lo que se indica en el comentario
+    private static String nombreOpcion(int opcion){
+
+        String nombre = "";
+        switch(opcion){
+            case 1: nombre = "piedra"; break;
+            case 2: nombre = "papel"; break;
+            case 3: nombre = "tijera"; break;
+            default: throw new IllegalArgumentException("Número introducido incorrecto: (en función 'calcularVictoria')");
+        }
+
+        return nombre;
+
+    }
 }
